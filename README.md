@@ -4,6 +4,9 @@ Um aplicativo web moderno e ultrarrápido para consulta de dados nutricionais, d
 
 ![Status do Projeto](https://img.shields.io/badge/Status-Conclu%C3%ADdo-4ade80?style=for-the-badge)
 ![Tecnologias](https://img.shields.io/badge/Stack-Vanilla_JS_|_CSS3_|_HTML5-blue?style=for-the-badge)
+![Testes](https://img.shields.io/badge/Testes-22%2F22_passando-4ade80?style=for-the-badge)
+
+**[→ Ver demo ao vivo](https://joaogsm05.github.io/calorie-counter/)**
 
 ---
 
