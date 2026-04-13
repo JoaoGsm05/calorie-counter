@@ -1,0 +1,23 @@
+Contador de Calorias
+Nível: 3 - Avançado
+
+Para alcançar e manter uma boa saúde, é necessário combinar equilíbrio mental, exercícios físicos e nutrição adequada. O objetivo do aplicativo Contador de Calorias é auxiliar o usuário a atender às suas necessidades nutricionais, contabilizando as calorias de diversos alimentos.
+
+Este aplicativo fornece o número de calorias com base no resultado da busca do usuário por um tipo de alimento. Os dados brutos da tabela periódica MyPyramid Food do Departamento de Agricultura dos EUA serão consultados para determinar os valores calóricos.
+
+O Contador de Calorias também proporciona a você, desenvolvedor, experiência na transformação de dados brutos em um formato que facilitará a busca. Nesse caso, o arquivo de dados brutos do MyPyramid Food, que é uma planilha do MS Excel, deve ser baixado e transformado em um arquivo JSON, que será mais fácil de carregar e pesquisar em tempo de execução (dica: dê uma olhada no formato de arquivo CSV).
+
+Histórias de Usuário
+O desenvolvedor criará um arquivo JSON contendo os itens alimentares a serem pesquisados. Este arquivo será carregado quando o aplicativo for iniciado.
+O usuário pode ver um painel contendo uma caixa de texto para entrada da descrição do alimento, um botão "Pesquisar" e um botão "Limpar".
+O usuário pode inserir termos de pesquisa na caixa de texto de descrição do alimento.
+O usuário pode clicar no botão 'Pesquisar' para procurar o alimento correspondente.
+O usuário poderá ver uma mensagem de aviso caso nenhum termo de pesquisa tenha sido inserido.
+O usuário poderá ver uma mensagem de aviso caso nenhuma correspondência seja encontrada.
+O usuário pode visualizar uma lista dos itens alimentares correspondentes, tamanhos das porções e calorias em un painel de resultados rolável, limitado a 25 entradas.
+O usuário pode clicar no botão "Limpar" para limpar os termos de pesquisa e a lista de resultados.
+Recursos adicionais
+O usuário pode ver a quantidade de itens alimentares correspondentes ao lado da lista de resultados.
+O usuário pode usar um caractere curinga nos termos de pesquisa.
+O usuário pode visualizar mais de 25 resultados de uma pesquisa clicando no botão com o ícone de seta para baixo para adicionar mais itens alimentares correspondentes à lista de resultados da pesquisa.
+O desenvolvedor deverá implementar o carregamento dos dados do MyPyramid em um banco de dados ou em uma estrutura de dados diferente de um array para agilizar as buscas.

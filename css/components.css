@@ -1,0 +1,475 @@
+/* ==========================================================================
+   SEARCH PANEL
+   ========================================================================== */
+
+.search-panel {
+    background-color: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.search-panel__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .search-panel__group { flex-direction: row; }
+}
+
+.search-panel__input-wrapper { flex: 1; }
+
+.search-panel__input {
+    width: 100%;
+    padding: var(--space-md);
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition-fast);
+}
+
+.search-panel__input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+.search-panel__actions {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: none;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.btn--sm {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.8rem;
+}
+
+.btn--primary {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-surface-hover);
+    border-color: var(--color-text-muted);
+}
+
+.btn--outline {
+    background-color: transparent;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn--outline:hover { background-color: rgba(74, 222, 128, 0.1); }
+
+/* ==========================================================================
+   MESSAGES
+   ========================================================================== */
+
+.message-area {
+    margin-top: var(--space-md);
+    font-size: 0.875rem;
+    min-height: 1.2rem;
+}
+
+.message--warning { color: var(--color-warning); }
+.message--info    { color: var(--color-info); }
+.message--success { color: var(--color-success); }
+.message--error   { color: var(--color-error); }
+
+/* ==========================================================================
+   SEARCH HISTORY
+   ========================================================================== */
+
+.search-history {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+    min-height: 1.5rem;
+}
+
+.history-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-right: var(--space-xs);
+}
+
+.history-chip {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: inherit;
+}
+
+.history-chip:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+/* ==========================================================================
+   RESULTS PANEL
+   ========================================================================== */
+
+.results-panel { margin-bottom: var(--space-xxl); }
+
+.results-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+    border-bottom: 2px solid var(--color-surface);
+    padding-bottom: var(--space-sm);
+}
+
+.results-header__title { font-size: 1.25rem; font-weight: 600; }
+.results-header__count { color: var(--color-text-muted); font-size: 0.875rem; }
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .results-grid { grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); }
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--space-xxl) 0;
+    color: var(--color-text-muted);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.results-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xl);
+}
+
+/* ==========================================================================
+   LOADING SKELETON
+   ========================================================================== */
+
+@keyframes skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.35; }
+}
+
+.skeleton {
+    background-color: var(--color-surface-hover);
+    border-radius: var(--radius-sm);
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.food-card--skeleton {
+    pointer-events: none;
+}
+
+.skeleton--title {
+    height: 1.4rem;
+    width: 65%;
+    margin-bottom: var(--space-md);
+}
+
+.skeleton--pills {
+    display: flex;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.skeleton--pill {
+    height: 1.6rem;
+    width: 90px;
+    border-radius: 20px;
+}
+
+.skeleton--stats {
+    height: 5rem;
+    border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   FOOD CARD
+   ========================================================================== */
+
+.food-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    transition: var(--transition-fast);
+}
+
+.food-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.food-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+.food-card__title { font-size: 1.1rem; font-weight: 600; line-height: 1.3; }
+.food-card__code  { font-size: 0.75rem; color: var(--color-text-muted); font-family: monospace; }
+
+.food-card__portions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.portion-pill {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.portion-pill:hover { border-color: var(--color-text-muted); color: var(--color-text); }
+
+.portion-pill.is-active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
+    font-weight: 600;
+}
+
+.food-card__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    background-color: var(--color-bg);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-xs);
+}
+
+.stat             { display: flex; flex-direction: column; align-items: center; }
+.stat__value      { font-size: 1.5rem; font-weight: 700; color: var(--color-accent); }
+.stat__label      { font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Add to Meal button */
+.btn-add-meal {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.btn-add-meal:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: rgba(74, 222, 128, 0.05);
+}
+
+.btn-add-meal.is-added {
+    border-color: var(--color-success);
+    color: var(--color-success);
+    background-color: rgba(16, 185, 129, 0.08);
+}
+
+/* ==========================================================================
+   CONDIMENTS
+   ========================================================================== */
+
+.food-card__condiments {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-sm);
+}
+
+.btn-condiments-toggle {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: var(--space-xs) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    width: 100%;
+}
+
+.btn-condiments-toggle:hover { text-decoration: underline; }
+
+.condiments-list {
+    list-style: none;
+    margin-top: var(--space-sm);
+    background-color: var(--color-bg);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+}
+
+.condiments-list li {
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--color-surface);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+}
+
+.condiments-list li:last-child { border-bottom: none; }
+.condiments-list li strong     { color: var(--color-text); }
+.condiments-list li span       { color: var(--color-text-muted); font-size: 0.75rem; }
+
+/* ==========================================================================
+   MEAL TRAY (Calculadora de Refeição)
+   ========================================================================== */
+
+.meal-tray {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background-color: var(--color-surface);
+    border-top: 2px solid var(--color-accent);
+    max-height: 40vh;
+    overflow-y: auto;
+    transition: bottom var(--transition-base);
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.meal-tray.is-visible { bottom: 0; }
+
+/* Padding no body para o conteúdo não ficar atrás do tray */
+body.meal-active { padding-bottom: 42vh; }
+
+.meal-tray__inner {
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+}
+
+.meal-tray__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+}
+
+.meal-tray__title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-accent);
+}
+
+.meal-tray__list {
+    list-style: none;
+    margin-bottom: var(--space-sm);
+}
+
+.meal-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.875rem;
+}
+
+.meal-item:last-child { border-bottom: none; }
+
+.meal-item__name    { flex: 1; font-weight: 500; }
+.meal-item__portion { color: var(--color-text-muted); font-size: 0.75rem; }
+.meal-item__calories {
+    color: var(--color-accent);
+    font-weight: 600;
+    min-width: 70px;
+    text-align: right;
+}
+
+.meal-item__remove {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 2px var(--space-xs);
+    font-size: 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+    line-height: 1;
+}
+
+.meal-item__remove:hover {
+    color: var(--color-error);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.meal-tray__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+}
+
+.meal-tray__total       { font-size: 0.875rem; color: var(--color-text-muted); }
+.meal-tray__total-value { font-size: 1.4rem; font-weight: 700; color: var(--color-accent); }

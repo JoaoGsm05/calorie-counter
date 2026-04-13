@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search nutritional data for 1,013 foods from the USDA MyPyramid database.">
+    <meta name="theme-color" content="#4ade80">
+    <title>Calorie Counter — USDA Food Data</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="app-header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo__icon" aria-hidden="true">🥗</span>
+                <h1 class="logo__title">Calorie Counter</h1>
+            </div>
+            <p class="app-header__subtitle">USDA MyPyramid Food Data · 1,013 foods</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- SEARCH PANEL -->
+        <section class="search-panel" aria-labelledby="search-heading">
+            <h2 id="search-heading" class="sr-only">Search Foods</h2>
+            <div class="search-panel__group">
+                <div class="search-panel__input-wrapper">
+                    <input type="text"
+                           id="food-search"
+                           class="search-panel__input"
+                           placeholder="Search for a food... (use * as wildcard)"
+                           aria-label="Food name"
+                           autocomplete="off"
+                           spellcheck="false">
+                </div>
+                <div class="search-panel__actions">
+                    <button id="btn-search" class="btn btn--primary" aria-label="Search">
+                        <span class="btn__icon" aria-hidden="true">🔍</span>
+                        <span class="btn__text">Search</span>
+                    </button>
+                    <button id="btn-clear" class="btn btn--secondary" aria-label="Clear search">
+                        <span class="btn__icon" aria-hidden="true">✕</span>
+                        <span class="btn__text">Clear</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent searches -->
+            <div id="search-history" class="search-history" aria-label="Recent searches"></div>
+
+            <!-- Status / validation messages -->
+            <div id="search-message" class="message-area" aria-live="polite"></div>
+        </section>
+
+        <!-- RESULTS PANEL -->
+        <section class="results-panel" id="results-area" aria-labelledby="results-heading">
+            <div class="results-header">
+                <h2 id="results-heading" class="results-header__title">Search Results</h2>
+                <span id="results-count" class="results-header__count" aria-live="polite"></span>
+            </div>
+
+            <div id="foods-list" class="results-grid">
+                <div class="empty-state">
+                    <p>Enter a food name to start searching.</p>
+                </div>
+            </div>
+
+            <div class="results-footer">
+                <button id="btn-load-more" class="btn btn--outline is-hidden">
+                    Load more results
+                    <span class="btn__icon" aria-hidden="true">↓</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="container">
+            <p>Data source: USDA MyPyramid Food Raw Data</p>
+        </div>
+    </footer>
+
+    <!-- MEAL CALCULATOR TRAY -->
+    <aside id="meal-tray" class="meal-tray" aria-label="Meal calculator" aria-live="polite">
+        <div class="container meal-tray__inner">
+            <div class="meal-tray__header">
+                <span class="meal-tray__title">🍽 Meal Tray</span>
+                <button id="btn-clear-meal" class="btn btn--secondary btn--sm" aria-label="Clear meal">
+                    Clear Meal
+                </button>
+            </div>
+            <ul class="meal-tray__list" aria-label="Foods added to meal"></ul>
+            <div class="meal-tray__footer">
+                <span class="meal-tray__total">Total calories:</span>
+                <span class="meal-tray__total-value">0 kcal</span>
+            </div>
+        </div>
+    </aside>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

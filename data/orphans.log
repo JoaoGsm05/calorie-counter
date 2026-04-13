@@ -1,0 +1,6 @@
+=== orphans.log — 2026-04-13T03:24:11.357Z ===
+
+--- Alimentos em Foods_Needing_Condiments sem entrada em Food_Display (1) ---
+  [ORPHAN]  code=71103020  name="Boiled potatoes (butter or oil added)"
+
+--- Condimentos referenciados sem dados em lu_Condiment_Food (0) ---
