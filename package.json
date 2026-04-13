@@ -1,0 +1,13 @@
+{
+  "name": "calorie-counter",
+  "version": "1.0.0",
+  "description": "USDA calorie counter — portfolio project",
+  "type": "module",
+  "scripts": {
+    "test": "node --test js/search.test.js",
+    "convert": "node scripts/convert-excel.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

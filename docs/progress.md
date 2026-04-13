@@ -122,5 +122,39 @@
 
 | Feature | Status | Prioridade |
 |---------|--------|-----------|
-| Deploy GitHub Pages | ⏳ Pendente | 🟡 Média |
-| Testes unitários (search.js, data-loader.js) | ⏳ Pendente | 🟢 Baixa |
+| Deploy GitHub Pages | ✅ Concluído | 🟡 Média |
+| Testes unitários (search.js) | ✅ Concluído | 🟢 Baixa |
+
+---
+
+## Etapa 14 — Testes Unitários + package.json
+- **Status:** ✅ Concluída
+- **Data:** 2026-04-13
+- **Papel principal:** [QA]
+- **Arquivos criados/modificados:**
+  - `package.json` (novo — `"type": "module"`, scripts `test` e `convert`)
+  - `js/search.test.js` (novo — 22 testes, 7 suites)
+  - `scripts/convert-excel.js` → renomeado para `scripts/convert-excel.cjs`
+  - `HANDOFF.md` (referência ao script atualizada)
+- **Decisões tomadas:**
+  - Runner: `node:test` nativo (Node 18+), zero dependências externas.
+  - Estratégia de mock: `searchIndex` é um `const Map` exportado por `data-loader.js`; populado diretamente no `before()` do teste com os mesmos dados de fixture — sem modificar `search.js`.
+  - `convert-excel.js` renomeado para `.cjs` para coexistir com `"type": "module"` no package.json.
+- **Cobertura (22 testes):**
+  - Query vazia e só espaços → []
+  - Match exato (score 3) → ordenado primeiro
+  - Starts-with (score 2) → ordenação alfabética em empate
+  - Query curta (<3 chars) → full scan
+  - Wildcard `chick*`, `*cheese*`, `*`, `beef*steak`
+  - Sem resultados
+  - Case insensitive (CAPS e mixed)
+  - Caracteres especiais de regex (`. + $ ^ ()`) não lançam exceção
+- **Pendências:** Nenhuma.
+
+## Etapa 15 — Deploy GitHub Pages
+- **Status:** ✅ Concluída
+- **Data:** 2026-04-13
+- **Papel principal:** [ARQUITETO]
+- **Ação:** Push para `origin/main` (remote já estava configurado). Ativar em Settings → Pages → branch main → / (root).
+- **URL:** https://joaogsm05.github.io/calorie-counter/
+- **Pendências:** Nenhuma.

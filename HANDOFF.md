@@ -8,7 +8,7 @@ Este documento registra o estado final do projeto em **13 de Abril de 2026** par
 O **MVP (Mínimo Produto Viável)** foi 100% concluído. O sistema está funcional, integrado e com visual polido.
 
 ### O que está funcionando:
-1. **Dados:** Script de conversão `scripts/convert-excel.js` gera um JSON de 1.013 alimentos.
+1. **Dados:** Script de conversão `scripts/convert-excel.cjs` gera um JSON de 1.013 alimentos.
 2. **Motor:** Busca com Wildcard (*) e ordenação por relevância em `js/search.js`.
 3. **UI:** Renderização de cards com troca de porção em tempo real e lista de condimentos em `js/ui.js`.
 4. **Design:** Tema escuro (Dark Mode) responsivo usando CSS puro.
